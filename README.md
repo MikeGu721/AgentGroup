@@ -1,5 +1,5 @@
 
-# Play HBO Series _Succession_ With LLM: Constructing a Simulation for Unrestricted Business Competition, Collaboration, Corporate Governance, and Power Struggles
+# Agent Group Chat: An Interactive Group Chat Simulacra For Better Eliciting Collective Emergent Behavior
 
 <img src="figures/headfigure.png">
 
