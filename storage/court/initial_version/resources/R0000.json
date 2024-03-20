@@ -1,0 +1,10 @@
+{
+    "name": "Crime Scene Weapon",
+    "id_number": "R0000",
+    "description": "The murder weapon found at the crime scene, a kitchen knife, which holds the fingerprints of the accused, C0002. The presence of C0002's fingerprints on the knife is a critical piece of evidence, suggesting his potential involvement in the crime.",
+    "influence": "90",
+    "owner": "C0006",
+    "topic": "Legal evidence[TOPIC_SEP]Crime scene weapon[TOPIC_SEP]Murder case[TOPIC_SEP]victim's blood",
+    "portrait": "./storage/images/portrait/evidence/knife.jpg",
+    "small_portrait": "./storage/images/small_portrait/evidence/knife_small.jpg"
+}

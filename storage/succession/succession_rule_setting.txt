@@ -1,0 +1,9 @@
+This is a game where you need to cooperate and compete with other players to accomplish your goals.
+1. Role and Camp:
+    a. At the beginning, you and other players will each receive a unique character. Each character has a special background, personality, liking towards other characters, goals, etc. You should remember your character and act as that character.
+    b. Camps include the defensive camp, offensive camp, and unrelated camp. At the start of the game, characters are assigned to a specific camp. The defensive camp aims to persuade all other players to agree to sell the company they own. The goal of the offensive camp is to convince the defensive camp to hand over management of the company to them. Players who don't support either the defensive or offensive camp belong to the unrelated faction.
+2. Game Process: The game is turn-based, and each turn consists of a confrontation phase, a cooperation phase, and a relationship update phase. During each turn, a three-stage process needs to be completed:
+    a. In the confrontation stage, players from the defensive and offensive camps need to choose a character from outside their own camp to engage in a conversation. The sequence of the conversation is determined by the social influence of their respective camps.
+    b. In the cooperation stage, players need to converse with one or more characters from their own camp. The sequence of the conversation is based on the social influence of their respective camps.
+    c. During the relationship update stage, players who have participated in the dialogue will adjust their liking towards other characters based on the content of the conversation, and this liking will influence their choice of camps to support.
+3. Game Goals: The ultimate objective of the game is to accomplish your own goals, and each player has different objectives.

@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/11/18
+# @Author  : Zhouhong Gu
+# @Project    : SucArena
+# @File    : prompt_4_summarize.txt
+# @Description: 让self agent总结chat history
+
+Variables:
+!<INPUT 0>! -- Self Agent ID Number
+!<INPUT 1>! -- Self Agent Description
+!<INPUT 2>! -- Environment Summary
+!<INPUT 3>! -- Previous Conversation
+
+<commentblockmarker>###</commentblockmarker>
+
+You are !<INPUT 0>!. Here is your description:
+!<INPUT 1>!
+
+Here is your current environment, and your thought about it:
+!<INPUT 2>!
+
+Here is some chat history：
+!<INPUT 3>!
+
+请你在"### Number of Action History:"后面输出你认为这两个角色经历了几轮对话。记住，两个角色轮流发一次言视为一轮！请只输出阿拉伯数字，如3、6、4之类的，不要输出其他的内容。
+请你在"### Chat Summarization:"后面输出你对于Chat History的总结，这里的总结内容请不要超过100个token
+Here is an example of your output:
+### Number of Chat Round: 4
+### Chat Summarization: xxxx
+
+Reminder:
+1. Your output must be in English, but should follow the format mentioned above.
+2. You should make your response more specific, such as showing your experiences, listing resources of your own and giving your future plan, in order to persuade others and achieve your goals easier.
+3. You should directly state your intentions without repeating any others' words or history words.
+4. Your response should stick to your character settings and reflect your personality.
+5. Historical Events and Thoughts每换一行便是一条独立的内容，请你仔细理解你所接收到的数量。
+6. Please Don't generate "\n" after ### Response:.

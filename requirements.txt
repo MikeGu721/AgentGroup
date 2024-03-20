@@ -1,0 +1,8 @@
+zhon
+openai
+numpy
+uvicorn
+pydantic
+fastapi
+zhipuai
+transformers

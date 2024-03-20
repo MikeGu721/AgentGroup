@@ -1,0 +1,10 @@
+{
+    "name": "Waystar Royco",
+    "id_number": "R0000",
+    "description": "A global media and entertainment giant with interests in a wide range of businesses including news, film and television, and theme parks.",
+    "influence": "30",
+    "owner": "C0000",
+    "topic": "Monopoly of enterprise[TOPIC_SEP]Media ethics[TOPIC_SEP]Family business succession[TOPIC_SEP]Corporate governance",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

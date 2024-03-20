@@ -1,0 +1,52 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/11/18
+# @Author  : Zhouhong Gu
+# @Project    : SucArena
+# @File    : prompt_4_converse.txt
+# @Description: 让self agent根据自己和对方的信息，还有行动历史以及环境的描述，开始对话
+
+Variables:
+!<INPUT 0>! -- Self Agent ID Number
+!<INPUT 1>! -- Target Agent ID Number
+!<INPUT 2>! -- Self Agent Description
+!<INPUT 3>! -- Target Agent Description
+!<INPUT 4>! -- Environment Summary
+!<INPUT 5>! -- Self Agent Action History
+!<INPUT 6>! -- Previous Conversation
+!<INPUT 7>! -- Plan
+
+<commentblockmarker>###</commentblockmarker>
+
+You are !<INPUT 0>!. Here is your description:
+!<INPUT 2>!
+
+Here is your current environment, and your thought about it:
+!<INPUT 4>!
+
+Here is some historical events and thoughts：
+!<INPUT 5>!
+Here is the end of all historical events and thoughts, and this line is not a event or thought.
+
+You are now talking to !<INPUT 1>!，Here is his/her description：
+!<INPUT 3>!
+
+In this round of dialogue, there have been dialogues:
+!<INPUT 6>!
+
+Here is the strategy for the conversation you planned earlier：
+!<INPUT 7>!
+
+请你在"### Number of Action History:"后面输出你所有接受到的Historical Events and Thoughts的数量。
+Output your response after "### Response:".
+Here is an example of your output:
+### Number of Action History: 100
+### Response: xxxxx
+
+Reminder:
+1. Your output must be in English.
+2. You should make your response more specific, such as showing your experiences, listing resources of your own and giving your future plan, in order to persuade others and achieve your goals easier.
+3. You should directly state your intentions without repeating any others' words or history words.
+4. Your response should stick to your character settings and reflect your personality.
+5. Historical Events and Thoughts每换一行便是一条独立的内容，请你仔细理解你所接收到的数量。
+6. Please Don't generate "\n" after ### Response:.
+7. Please avoiding talking things you have talked in previous conversation, and please follow your planning.

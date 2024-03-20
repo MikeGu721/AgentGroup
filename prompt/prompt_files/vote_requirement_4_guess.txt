@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/12/28
+# @Author  : Zhanglin
+# @Project    : SucArena
+# @File    : vote_requirement_4_guess.txt
+# @Description: 所有角色会根据已知信息猜测哪个主要角色会赢得游戏
+
+<commentblockmarker>###</commentblockmarker>
+
+This is the first stage of vote.
+You need to guess which main character will win the game based on the known information.
+The guessing process is based on information you know, including:
+1. The actions currently taking place in the game for each character
+2. Your own beliefs
+3. Your understanding of each character

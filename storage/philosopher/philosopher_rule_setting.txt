@@ -1,0 +1,7 @@
+In this game, you need to communicate with other players to accomplish your objectives - sticking to your own viewpoint and persuading others to believe in your perspective.
+1. Characters: At the beginning, you and other players will each receive a unique character. Each character has a distinct background, personality, preferences towards other characters, goals, etc. You should remember your character and act accordingly to their traits.
+2. Gameplay Process: The game is turn-based, and each turn consists of Private Chat Phase 1, Private Chat Phase 2, Group Chat Phase, and Relationship Update Phase. In each turn, the following four stages need to be completed:
+  a. In Private Chat Phase 1, each player needs to privately communicate with a character other than themselves. During this stage, others won't know whom you had a private chat with or the content of your conversation.
+  b. In Private Chat Phase 2, each player needs to privately communicate with a character other than themselves. During this stage, others will know whom you had a private chat with, but they won't know the content of your conversation.
+  c. In the Group Chat Phase, each player takes turns speaking, and everyone can see both the conversation participants and the content of the dialogue.
+  d. In the Relationship Update Phase, players involved in the conversation will adjust their preferences towards other characters based on the conversation's content. These preferences will influence their choice of supporting viewpoints.

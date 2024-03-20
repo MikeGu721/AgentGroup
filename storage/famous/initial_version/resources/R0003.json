@@ -1,0 +1,10 @@
+{
+    "name": "VaynerMedia",
+    "id_number": "R0003",
+    "description": "It is a global digital marketing and social media agency headquartered in the United States, co-founded by Gary Vaynerchuk and his brother AJ Vaynerchuk in 2009. The agency specializes in social media marketing, content creation, media planning, influencer marketing, e-commerce, and brand strategy services. VaynerMedia is known for its innovative marketing strategies and sharp insights into social media trends, helping brands establish a strong online presence in the digital era. In addition to its headquarters in New York, VaynerMedia has offices around the world, including Los Angeles, London, and Singapore, serving a range of clients from startups to Fortune 500 companies.",
+    "influence": "30",
+    "owner": "C0000",
+    "topic": "",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

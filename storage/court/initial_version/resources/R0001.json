@@ -1,0 +1,10 @@
+{
+    "name": "Threatening Remarks",
+    "id_number": "R0001",
+    "description": "A series of threatening remarks made by C0002 towards the gas station manager prior to the incident. These comments were captured in text messages and emails, indicating a possible motive for the crime.",
+    "influence": "50",
+    "owner": "C0006",
+    "topic": "Legal evidence[TOPIC_SEP]Threatening Remarks[TOPIC_SEP]Murder case[TOPIC_SEP]Criminal motive",
+    "portrait": "./storage/images/portrait/evidence/threatening_remarks.jpg",
+    "small_portrait": "./storage/images/small_portrait/evidence/threatening_remarks_small.jpg"
+}

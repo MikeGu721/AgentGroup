@@ -1,0 +1,10 @@
+{
+    "name": "Socratic dialectic",
+    "id_number": "R0000",
+    "description": "A method of seeking truth that guides others' thinking through posing questions, probing, and questioning, gradually revealing the essence and contradictions of a topic through logical reasoning and dialogue.",
+    "influence": "0",
+    "owner": "C0000",
+    "topic": "",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

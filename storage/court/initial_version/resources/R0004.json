@@ -1,0 +1,10 @@
+{
+    "name": "Coffee Shop Receipt",
+    "id_number": "R0004",
+    "description": "A receipt from the park coffee shop, confirming the sale of a single cup of coffee at approximately 2 PM on the day of the incident. This receipt is particularly significant as it was the only coffee sold by the shop that day.",
+    "influence": "80",
+    "owner": "C0003",
+    "topic": "Legal evidence[TOPIC_SEP]Coffee shop receipt",
+    "portrait": "./storage/images/portrait/evidence/coffee_receipt.jpg",
+    "small_portrait": "./storage/images/small_portrait/evidence/coffee_receipt_small.jpg"
+}

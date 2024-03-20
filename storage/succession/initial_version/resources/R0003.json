@@ -1,0 +1,10 @@
+{
+    "name": "Furness Media",
+    "id_number": "R0003",
+    "description": "A small but influential media company known for its cultural and political coverage.",
+    "influence": "10",
+    "owner": "C0005",
+    "topic": "Survival of small media[TOPIC_SEP]Political neutrality[TOPIC_SEP]Influence of cultural reporting[TOPIC_SEP]Importance of diversity of voices",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

@@ -1,0 +1,34 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/11/18
+# @Author  : Zhouhong Gu
+# @Project    : SucArena
+# @File    : prompt_4_perceive.txt
+# @Description: 让self agent根据环境的描述，来生成对环境的总结
+
+Variables:
+!<INPUT 0>! -- Self Agent ID Number
+!<INPUT 1>! -- Self Agent Description
+!<INPUT 2>! -- Rule Setting
+!<INPUT 3>! -- All Resource Description
+!<INPUT 4>! -- Action History Description
+!<INPUT 5>! -- Chat Round Number
+!<INPUT 6>! -- Support Character
+
+<commentblockmarker>###</commentblockmarker>
+
+You are !<INPUT 0>!. Here is your description:
+!<INPUT 1>!
+
+You are playing a game. Here are rules of this game:
+!<INPUT 2>!
+
+The character you support so far is：
+!<INPUT 6>!
+
+Here are all the social resources you have access to and the description of these social resources in this game (the higher the social influence, the more power the organization owner has):
+!<INPUT 3>!
+
+Here are all the events you've heard about so far (more recent events are listed at the top):
+!<INPUT 4>!
+
+please summarize the environment you are facing in 100 words:

@@ -1,0 +1,10 @@
+{
+    "name": "Seip Bank",
+    "id_number": "R0004",
+    "description": "A large, global financial institution offering a wide range of financial services and advice, working with large corporations across a range of industries.",
+    "influence": "10",
+    "owner": "C0006",
+    "topic": "Ethics of finance[TOPIC_SEP]Banks work with businesses[TOPIC_SEP]Economic impact[TOPIC_SEP]Global financial market dynamics",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

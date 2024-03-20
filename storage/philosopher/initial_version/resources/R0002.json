@@ -1,0 +1,10 @@
+{
+    "name": "Zhuangzi",
+    "id_number": "R0002",
+    "description": "Through fables, metaphors, and humor, it explores the concepts of human freedom and happiness, personal cultivation and the pursuit of truth, as well as the importance of living in harmony with nature.",
+    "influence": "0",
+    "owner": "C0002",
+    "topic": "",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

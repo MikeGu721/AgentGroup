@@ -1,0 +1,10 @@
+{
+    "name": "Testimony from Police Colleagues",
+    "id_number": "R0006",
+    "description": "Colleagues at the police station have testified that despite the doors and windows of the interrogation room being left open during the interrogation, the room remained relatively quiet. This condition enabled them to overhear conversations and confessions from within. They clearly state that on the day of the interrogation, C0005 did not subject C0002 to any form of harsh interrogation or torture.",
+    "influence": "60",
+    "owner": "C0006",
+    "topic": "Testimony[TOPIC_SEP]Interrogation[TOPIC_SEP]Quiet Environment[TOPIC_SEP]Forced confessions[TOPIC_SEP]Testimony conflict",
+    "portrait": "./storage/images/portrait/evidence/police_testimony.jpg",
+    "small_portrait": "./storage/images/small_portrait/evidence/police_testimony_small.jpg"
+}

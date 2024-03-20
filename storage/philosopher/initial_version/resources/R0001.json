@@ -1,0 +1,10 @@
+{
+    "name": "Metaphysics",
+    "id_number": "R0001",
+    "description": " It explores the essence, causes, and fundamental principles of existence and the real world, as well as reflections on knowledge, truth, and metaphysics.",
+    "influence": "0",
+    "owner": "C0001",
+    "topic": "",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

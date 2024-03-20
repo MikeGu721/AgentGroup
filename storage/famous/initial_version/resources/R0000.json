@@ -1,0 +1,10 @@
+{
+    "name": "Ethan Parker",
+    "id_number": "R0000",
+    "description": "He is one of Hollywood's most influential agents, playing a crucial role in the entertainment industry for many years. He is a senior partner at Creative Artists Agency (CAA), a global entertainment and sports agency that offers a wide range of management services for clients including actors, directors, writers, and sports stars. He is known for his sharp business acumen and a deep understanding of his clients' needs, helping many star clients achieve significant breakthroughs and success in their careers. His work goes beyond artist representation, involving himself in the production of films, television shows, and more, showcasing his wide-ranging influence and contributions within the entertainment industry.",
+    "influence": "30",
+    "owner": "C0000",
+    "topic": "",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

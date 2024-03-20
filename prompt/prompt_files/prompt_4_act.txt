@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/11/18
+# @Author  : Zhouhong Gu
+# @Project    : SucArena
+# @File    : prompt_4_act.txt
+# @Description: 要求Self Agent根据自己的描述，环境描述，行动历史，从候选人列表中选择适合的对话对象
+
+Variables:
+!<INPUT 0>! -- Self Agent ID Number
+!<INPUT 1>! -- Self Agent Description
+!<INPUT 2>! -- Environment Summary
+!<INPUT 3>! -- Round Description
+!<INPUT 4>! -- Action History
+!<INPUT 5>! -- Candidate List
+!<INPUT 6>! -- Now Round
+
+<commentblockmarker>###</commentblockmarker>
+You are !<INPUT 0>!, the description of you is listed as follows:
+!<INPUT 1>!
+
+You are in the environment described as follows:
+!<INPUT 2>!
+!<INPUT 3>!
+
+Your memory is listed as follows:
+!<INPUT 4>!
+
+Now, please choose one role which you want talk to from the following candidate list:
+!<INPUT 5>!
+
+You should think about your strategy first, and output the results of your thinking after "### Thought:". Please do not print additional "\n" except at the end of the sentence.
+Then you need to have a total of !<INPUT 6>! turns of dialogue with your chosen character. Please think about your dialogue strategy and output the topic of each turn of dialogue after "### Plan:".
+请你在"### Action Space:"后面输出你所有可以选择的角色，并用英文逗号","进行分隔。
+Finally, please choose the name of the role you want to talk to, please output the name directly after "### Choose:", such as C0001, do not reply any additional content.
+Reminder: Your output must be in English.
+Here is an example of your response:
+
+### Action Space: xxxx, xxxx, ....
+
+### Thought: xxxxx
+
+### Plan:
+Round 1: xxx
+Round 2: xxx
+
+### Choose: C0001

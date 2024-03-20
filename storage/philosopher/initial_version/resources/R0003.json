@@ -1,0 +1,10 @@
+{
+    "name": "The Will to Power",
+    "id_number": "R0003",
+    "description": "It explores the concept of will, asserting that it is a driving force behind human behavior and creativity.",
+    "influence": "0",
+    "owner": "C0003",
+    "topic": "",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

@@ -1,0 +1,10 @@
+{
+    "name": "William Morris Endeavor",
+    "id_number": "R0001",
+    "description": "It is an international entertainment and media company headquartered in the United States, engaged in various fields including talent agency, literary publishing, music, sports, and fashion. Established in 2009 through the merger of William Morris Agency and Endeavor Talent Agency, WME represents a diverse array of talents, including actors, writers, musicians, directors, and athletes. The company has multiple offices worldwide and provides cross-platform opportunities and services for its clients through its extensive network of contacts and partners. WME is a highly influential entity in the entertainment industry, with a rich pool of talents and industry connections. It offers comprehensive services across various domains such as cinema, television, music, sports, digital media, and publishing. ",
+    "influence": "30",
+    "owner": "C0000",
+    "topic": "",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

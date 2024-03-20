@@ -1,0 +1,10 @@
+{
+    "name": "Construction Noise Evidence",
+    "id_number": "R0005",
+    "description": "On the day of the interrogation, heavy construction was taking place adjacent to the police station, involving the use of cranes and resulting in significant noise pollution. Given that 2011 was declared a 'Low Carbon Year' in Japan, public institutions were not permitted to use air conditioning and were required to keep windows open for ventilation, which would have made the construction noise even more pervasive inside the building.",
+    "influence": "100",
+    "owner": "C0000",
+    "topic": "Testimony[TOPIC_SEP]Construction Noise[TOPIC_SEP]Low Carbon[TOPIC_SEP]Noisy Environment[TOPIC_SEP]Testimony conflict",
+    "portrait": "./storage/images/portrait/evidence/construction_noise.jpg",
+    "small_portrait": "./storage/images/small_portrait/evidence/construction_noise_small.jpg"
+}

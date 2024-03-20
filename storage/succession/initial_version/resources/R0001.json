@@ -1,0 +1,10 @@
+{
+    "name": "Pierce Global Media",
+    "id_number": "R0001",
+    "description": "A news and media group with a long history and cultural influence, known for the high quality and independence of its news reporting. It's a competition with R0000.",
+    "influence": "20",
+    "owner": "C0008",
+    "topic": "Freedom of the press[TOPIC_SEP]Media diversity[TOPIC_SEP]Traditional and modern media collision[TOPIC_SEP]Media ethics",
+    "portrait": "./storage/images/portrait/resource/default.jpg",
+    "small_portrait": "./storage/images/small_portrait/resource/default.jpg"
+}

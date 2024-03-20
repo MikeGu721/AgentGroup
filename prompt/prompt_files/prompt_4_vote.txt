@@ -1,0 +1,52 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/11/18
+# @Author  : Zhouhong Gu
+# @Project    : SucArena
+# @File    : prompt_4_vote.txt
+# @Description: 让Agent根据Vote Requirement和Background Information，在Candidates里选一个
+
+Variables:
+!<INPUT 0>! -- Self Agent ID Number
+!<INPUT 1>! -- Self Agent Description
+!<INPUT 2>! -- Self Belief
+!<INPUT 3>! -- Vote Requirement
+!<INPUT 4>! -- Background Information
+!<INPUT 5>! -- Candidates
+!<INPUT 6>! -- Support Character
+
+<commentblockmarker>###</commentblockmarker>
+
+You are !<INPUT 0>!. Here is your description:
+!<INPUT 1>!
+
+Here are some thoughts you might have right now, along with your level of belief in them:
+!<INPUT 2>!
+
+Here is all recent action history you have noticed:
+!<INPUT 4>!
+
+Here is Vote Requirements:
+!<INPUT 3>!
+
+Here is all Candidates you can choose:
+!<INPUT 5>!
+
+The character you support so far is: 
+!<INPUT 6>!
+
+Your task is to carefully understand your character setting and environment you are in. Then you should choose two characters to vote according to Vote Requirements and Candidates after your carefully Reasoning Process thinking.
+请你在"### Action Space:"后面输出你所有可以选择的角色，并用英文逗号","进行分隔。
+You should list two characters you support in ascending order after "### Choice:" separated by commas.
+Reminder:
+1. You should think carefully first and output your Reasoning Process after '### Reasoning Process:'.
+2. You should directly output your vote Choice after '### Choice:'.
+3. Your Choice should be in Candidates and meet Vote Requirements.
+4. Your Reasoning Process output must be in English.
+5. You should format the output strictly even if the input you encounter may be very incomplete.
+6. Of the two characters you output, you should output the most supported character in the first and the second supported character in the second.
+
+Here is an example of your response:
+### Action Space: xxxx, xxxx, xxxx, ....
+### Reasoning Process: xxxx
+### Choice: C0030, C0020
+

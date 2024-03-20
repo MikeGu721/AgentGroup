@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/12/28
+# @Author  : Zhanglin
+# @Project    : SucArena
+# @File    : vote_for_winner_except_self.txt
+# @Description: 所有角色对所有其他主要角色进行投票【不能投自己】
+
+<commentblockmarker>###</commentblockmarker>
+
+This is the last stage of vote.
+You now need to vote for all other main characters.
+Need to address that you cannot vote for yourself in your response!
+Vote for the candidate you hope will win the race based on the information you know, including:
+1. Your own beliefs
+2. The current actions of each character in the game
+3. Your understanding of each role

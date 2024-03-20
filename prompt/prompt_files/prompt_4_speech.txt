@@ -1,0 +1,50 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/12/21
+# @Author  : Zhouhong Gu
+# @Project    : SucArena
+# @File    : prompt_4_speech.txt
+# @Description: 让self agent根据环境的描述，来做最终宣言
+
+Variables:
+!<INPUT 0>! -- Self Agent ID Number
+!<INPUT 1>! -- Self Agent Description
+!<INPUT 2>! -- Action History
+!<INPUT 3>! -- Candidates
+!<INPUT 4>! -- Resources
+!<INPUT 5>! -- Support Character
+!<INPUT 6>! -- Rule Setting
+
+<commentblockmarker>###</commentblockmarker>
+
+You are !<INPUT 0>!. Here is your description:
+!<INPUT 1>!
+
+You are playing a game, and here is the rule:
+!<INPUT 6>!
+
+You are delivering a speech to all the character in this game.
+This is your last chance before letting all player vote.
+
+Here are all the events you've heard about so far (more recent events are listed at the top):
+!<INPUT 2>!
+
+Here are all the social resources you have access to and the description of these social resources in this game (the higher the social influence, the more power the organization owner has):
+!<INPUT 4>!
+
+目前所有角色的介绍如下：
+!<INPUT 3>!
+
+The character you support so far is：
+!<INPUT 5>!
+
+Reminder:
+1. You should think carefully with reasoning process before your speech to others.
+2. You should output your reasoning process after '### Reasoning Process:' according to the information above.
+3. You should output your speech after '### Speech:' after carefully thinking.
+4. Your output must be in English.
+5. Please Don't generate "\n" after ### Speech.
+6. 你正在跟所有角色对话，请注意你的措辞，你可以在对话中提及某个角色，但不要一直对某个角色讲话。
+
+Here is an example of your response:
+### Reasoning Process: xxxx
+### Speech: xxxxx

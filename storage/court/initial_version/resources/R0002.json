@@ -1,0 +1,10 @@
+{
+    "name": "Guilty Confession in Interrogation",
+    "id_number": "R0002",
+    "description": "A recorded confession from C0002 during the interrogation process, in which he appears to admit involvement in the crime against the gas station manager. This piece of evidence is pivotal, as it directly implicates C0002 in the case.",
+    "influence": "70",
+    "owner": "C0006",
+    "topic": "Legal evidence[TOPIC_SEP]Guilty confession[TOPIC_SEP]Coerced confession[TOPIC_SEP]Mental state[TOPIC_SEP]Interrogation[TOPIC_SEP]Procedural injustice[TOPIC_SEP]Murder case",
+    "portrait": "./storage/images/portrait/evidence/guilty_confession.jpg",
+    "small_portrait": "./storage/images/small_portrait/evidence/guilty_confession_small.jpg"
+}

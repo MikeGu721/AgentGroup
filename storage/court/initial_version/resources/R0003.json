@@ -1,0 +1,10 @@
+{
+    "name": "Krystal's Blog",
+    "id_number": "R0003",
+    "description": "A blog entry by C0004 detailing her activities on the day of the incident. The blog post describes her spending the afternoon sketching on a bench in Central Park, purchasing a cup of coffee around 2 PM, and staying in the park for the afternoon. Moreover, the post includes photos corroborating her presence in the park. This blog seems to compellingly indicate that C0004 was the one who bought the single cup of coffee on the day of the incident. However, some discrepancies may found in C0004's blog history, which could raise questions about the blog's reliability as evidence.",
+    "influence": "90",
+    "owner": "C0004",
+    "topic": "Legal evidence[TOPIC_SEP]Diary[TOPIC_SEP]Online blog[TOPIC_SEP]Sketching[TOPIC_SEP]Fabricating stories[TOPIC_SEP]",
+    "portrait": "./storage/images/portrait/evidence/shimamura_blog.jpg",
+    "small_portrait": "./storage/images/small_portrait/evidence/shimamura_blog_small.jpg"
+}

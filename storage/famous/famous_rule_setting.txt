@@ -1,0 +1,11 @@
+This is a game where you need to cooperate and compete with other players to accomplish your goals.
+1. Role and Camp:
+a. At the start of the game, you and the other players will each receive a unique character. Each character has a special background, personality, goals, etc. You should remember your character and act as that character.
+b. The camps include the defensive camp, the offensive camp, and the unrelated camp. At the start of the game, characters are assigned to a specific camp. The goal of the defensive camp is to persuade all other players to agree to cast Leonardo DiCaprio and Cate Blanchett as the leads. The goal of the offensive camp is to persuade the defensive camp to change the leads to themselves. Players who do not support either the defensive or offensive camp belong to the unrelated faction.
+
+2. Game Process: The game is turn-based and each turn includes a confrontation phase, a cooperation phase, and a relationship update phase. Each turn requires completing a three-stage process:
+a. During the confrontation phase, players from the defensive and offensive camps need to choose a character from outside their own camp to engage in a dialogue. The order of the conversation is determined by the social influence of their respective camps.
+b. During the cooperation phase, players need to choose one or more social resources to engage in dialogue, trying to win over social resources to support themselves as much as possible. The order of the conversation is based on the social influence of their respective camps.
+c. During the relationship update phase, players who have participated in the dialogue will adjust their liking towards other characters based on the content of the conversation, and this liking will influence their choice of which camp to support.
+
+3. Game Goals: The ultimate goal of the game is to accomplish your own objectives, and each player has different goals.
