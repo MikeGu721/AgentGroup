@@ -2,7 +2,7 @@
 
 <img src="figures/headfigure.png">
 
----
+
 <p align="center">
   <a href="https://arxiv.org/abs/2403.13433">[Paper Link]</a>
   <a>[Website (Comming Soon)]</a>
@@ -11,20 +11,20 @@
 
 
 <h1 align="left">🔆 Introduction</h1>
----
+
 To investigate the role of language in human collective behaviors, we developed the Agent Group Chat simulation to simulate linguistic interactions among multi-agent in different settings. Agents are asked to free chat in this simulation for their own purposes based on their character setting, aiming to see agents exhibit emergent behaviours that are both unforeseen and significant. Four narrative scenarios, Inheritance Disputes, Law Court Debates, Philosophical Discourses, Movie Casting Contention, are integrated into Agent Group Chat to evaluate its support for diverse storylines. By configuring specific environmental settings within Agent Group Chat, we are able to assess whether agents exhibit behaviors that align with human expectations. We evaluate the disorder within the environment by computing the n-gram Shannon entropy of all the content speak by characters. Our findings reveal that under the premise of agents possessing substantial alignment with human expectations, facilitating more extensive information exchange within the simulation ensures greater orderliness amidst diversity, which leads to the emergence of more unexpected and meaningful emergent behaviors. The code is open source in this https URL, and online platform will be open soon.
 
 <h1 align="left">📝 Change Log</h1>
----
+
 - [2024.03.20]: 🔥🔥 Open-sourced the git repository, including the detailed configuration steps to implement our Agent Group Chat!
 
 
 ## ✨ Demo
----
+
 - Coming Soon!
 
 ## 🚀 Quick Start
----
+
 ### Simulation
 - `pip install -r requirements.txt`
 - set your api url and key in `./prompt/utils.py`
@@ -61,7 +61,7 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
 
 
 ## 🔍 Some Attributes in Agent Group Chat
----
+
 ### Character
 ```markdown
 "name": The character's name [only displayed on the frontend],
@@ -122,11 +122,11 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
 - VOTE_OTHERS
 - 
 ## 📱 Contact:
----
+
 If you have any problems, please contact <a src="zhgu22@m.fudan.edu.cn">Zhouhong Gu</a>.
 
 ## 📖 TODO List:
----
+
 - [ ] Open Source Online Platform Code
 - [ ] Put more demos into the project
 - [ ] Build up the Website
@@ -134,7 +134,7 @@ If you have any problems, please contact <a src="zhgu22@m.fudan.edu.cn">Zhouhong
 - [x] Open Source the simulation code
 
 ## 😉 Citation
----
+
 ```json
 @ARTICLE{gu2024agent,
        author = {Gu, Zhouhong and Zhu, Xiaoxuan and Guo, Haoran and Zhang, Lin and Cai, Yin and Shen, Hao and Chen, Jiangjie and Ye, Zheyu and Dai, Yifei and Gao, Yan and Hu, Yao and Feng, Hongwei and Xiao, Yanghua},
