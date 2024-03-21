@@ -135,7 +135,7 @@ If you have any problems, please contact <a src="zhgu22@m.fudan.edu.cn">Zhouhong
 
 ## 😉 Citation
 
-```json
+```
 @ARTICLE{gu2024agent,
        author = {Gu, Zhouhong and Zhu, Xiaoxuan and Guo, Haoran and Zhang, Lin and Cai, Yin and Shen, Hao and Chen, Jiangjie and Ye, Zheyu and Dai, Yifei and Gao, Yan and Hu, Yao and Feng, Hongwei and Xiao, Yanghua},
         title = {Agent Group Chat: An Interactive Group Chat Simulacra For Better Eliciting Collective Emergent Behavior},
