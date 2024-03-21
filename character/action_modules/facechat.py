@@ -2,7 +2,7 @@ from prompt.gpt_structure import generate_prompt, generate_with_response_parser,
 import sys
 
 
-def run_converse(source_character_id_number: str,
+def run_facechat(source_character_id_number: str,
                 target_character_id_number: str,
                 source_character_description:str,
                 target_character_description: str,
@@ -11,30 +11,11 @@ def run_converse(source_character_id_number: str,
                 chat_history: str,
                 plan: str,
                 engine='gpt4',logger=None):
-    '''
-    让source_character基于environment_description和action_history对target_character一次对话
-
-    ACTION_SPACE:
-    ### SAY
-    ### MEET
-    ### REFLECT
-    ### SPEECH
-
-    Input:
-    environment_description: str
-    target_character: Persona
-    source_character: Persona 
-    action_history: ActionHistory
-
-    Output:
-    action_history: list ([str, str])
-    '''
-
     gpt_param = {"temperature": 0.5, "top_p": 1, "stream": False,
                  "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
 
-    prompt_template = "prompt_files/prompt_4_converse.txt"
-    prompt_template = "prompt_files/prompt_wo_thinking/prompt_4_converse_wo_thinking.txt"
+    prompt_template = "prompt_files/prompt_4_facechat.txt"
+    # prompt_template = "prompt_files/prompt_wo_thinking/prompt_4_converse_wo_thinking.txt"
     prompt_input = create_prompt_input(source_character_id_number,
                                         target_character_id_number,
                                         source_character_description,

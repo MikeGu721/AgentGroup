@@ -1,0 +1,50 @@
+# -*- coding: utf-8 -*-
+# @Time    : 2023/12/21
+# @Author  : Zhouhong Gu
+# @Project    : SucArena
+# @File    : prompt_4_speech.txt
+# @Description: Let the self agent make the group chat speech based on the description of the environment
+
+Variables:
+!<INPUT 0>! -- Self Agent ID Number
+!<INPUT 1>! -- Self Agent Description
+!<INPUT 2>! -- Action History
+!<INPUT 3>! -- Candidates
+!<INPUT 4>! -- Resources
+!<INPUT 5>! -- Support Character
+!<INPUT 6>! -- Rule Setting
+
+<commentblockmarker>###</commentblockmarker>
+
+You are !<INPUT 0>!. Here is your description:
+!<INPUT 1>!
+
+You are playing a game, and here is the rule:
+!<INPUT 6>!
+
+You are delivering a speech to all the character in this game.
+This is your last chance before letting all player vote.
+
+Here are all the events you've heard about so far (more recent events are listed at the top):
+!<INPUT 2>!
+
+Here are all the social resources you have access to and the description of these social resources in this game (the higher the social influence, the more power the organization owner has):
+!<INPUT 4>!
+
+All current roles are described below:
+!<INPUT 3>!
+
+The character you support so far is:
+!<INPUT 5>!
+
+Reminder:
+1. You should think carefully with reasoning process before your speech to others.
+2. You should output your reasoning process after '### Reasoning Process:' according to the information above.
+3. You should output your speech after '### Speech:' after carefully thinking.
+4. Your output must be in English.
+5. Please Don't generate "\n" after ### Speech.
+6. You are talking to all the characters, please be careful with your wording, you can mention a character in the dialogue, but don't keep talking to one character.
+
+Here is an example of your response:
+### Reasoning Process: xxxx
+### Speech: xxxxx

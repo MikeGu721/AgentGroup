@@ -1,43 +1,45 @@
-SAVE_FOLDER = './storage/succession/initial_version'  # 读取哪里的存档
-# TEST_FOLDER = './storage/succession/test_version'
+SAVE_FOLDER = './storage/succession/initial_version'
+TEST_FOLDER = './storage/succession/test_version'
 
-# TEST_FOLDER = './storage/succession/saving/chatglm_128k_1'  # 保存到哪里
-# TEST_FOLDER = './storage/succession/saving/chatglm_64k_1'  # 保存到哪里
-# TEST_FOLDER = './storage/succession/saving/chatglm_1'  # 保存到哪里
-# TEST_FOLDER = './storage/succession/saving/llama2_1'  # 保存到哪里
-# TEST_FOLDER = './storage/succession/saving/mistral_1'  # 保存到哪里
-TEST_FOLDER = './storage/succession/saving/falcon_1'  # 保存到哪里
+# TEST_FOLDER = './storage/succession/saving/chatglm_128k_1'
+# TEST_FOLDER = './storage/succession/saving/chatglm_64k_1'
+# TEST_FOLDER = './storage/succession/saving/chatglm_1'
+# TEST_FOLDER = './storage/succession/saving/llama2_1'
+# TEST_FOLDER = './storage/succession/saving/mistral_1'
+# TEST_FOLDER = './storage/succession/saving/falcon_1'
+# SAVE_FOLDER = TEST_FOLDER
 LOG_FOLDER = './logs'
-INPUT_FOLDER = './storage/succession/inputs'  # 保存用户输入
+INPUT_FOLDER = './storage/succession/inputs'
 
 model_cache_dir = 'cache_folder'
+if 'llama2' in TEST_FOLDER:
+    model_cache_dir = 'cache_folder/models--meta-llama--Llama-2-7b-chat-hf/snapshots/9eae4b460bfc40df6c741e67d9634f963b31e02e'
 
-debug = False  # 疯狂打印 prompt 和 gpt_response
+debug = False
 
-MIN_SUPPORT_RELATION_SCORE = 20  # 最低支持分数
+MIN_SUPPORT_RELATION_SCORE = 20
 
-BATTLE_CHAT_ROUND = 2  # 对抗阶段进行5轮对话
-COLLABORATION_CHAT_ROUND = 2  # 合作阶段进行5轮对话
-GAME_ROUND = 2  # 游戏总共进行10回合
+PRIVATE_CHAT_ROUND = 2
+MEETING_CHAT_ROUND = 2
+GAME_ROUND = 2
 
-INITIAL_RELATION_SCORE = 10  # 陌生人的关系分
-MAX_RELATION_SCORE_CHANGE = 10  # 每轮关系分最多的变化
-MAX_RELATION_SCORE = 100  # 关系分最高值
-MIN_RELATION_SCORE = 0  # 关系分最低值
-MAX_BELIEF_SCORE_CHANGE = 10  # 每轮关系分最多的变化
-MIN_BELIEF_SCORE = 0  # 信念值最低分
-MAX_BELIEF_SCORE = 100  # 信念值最高分
+INITIAL_RELATION_SCORE = 10
+MAX_RELATION_SCORE_CHANGE = 10
+MAX_RELATION_SCORE = 100
+MIN_RELATION_SCORE = 0
+MAX_BELIEF_SCORE_CHANGE = 10
+MIN_BELIEF_SCORE = 0
+MAX_BELIEF_SCORE = 100
 
-INITIAL_INFLUENCE_SCORE = 0  # 影响力初始分
-MAX_INFLUENCE_SCORE_CHANGE = 30  # 每轮关系分最多的变化
-MAX_INFLUENCE_SCORE = 9999  # 影响力最高值
-MIN_INFLUENCE_SCORE = 0  # 影响力最低值
+INITIAL_INFLUENCE_SCORE = 0
+MAX_INFLUENCE_SCORE_CHANGE = 30
+MAX_INFLUENCE_SCORE = 9999
+MIN_INFLUENCE_SCORE = 0
 
-# 记忆检索数量
-MAX_MEMORY_RETRIEVE_IN_PERCEIVE = 20  # 感知环境时的记忆检索数量
-MAX_MEMORY_RETRIEVE_IN_REFLECT = 999  # 反思时的记忆检索数量
+MAX_MEMORY_RETRIEVE_IN_PERCEIVE = 20
+MAX_MEMORY_RETRIEVE_IN_REFLECT = 999
 
-ERROR_RETRY_TIMES = 10  # 出错重试次数
+ERROR_RETRY_TIMES = 10
 
 ACTIONHISTORY_VOTE = 30
 ACTIONHISTORY_NONVOTE = 20
@@ -50,7 +52,7 @@ ACTIONHISTORY_RETRIEVE_NUM_UPDATE = 30
 ACTIONHISTORY_RETRIEVE_NUM_WHOLE_INFORMATION = 30
 ACTIONHISTORY_RETRIEVE_NUM_PARTIAL_INFORMATION = 30
 
-# w/o memory experiments
+
 # ACTIONHISTORY_VOTE = 0
 # ACTIONHISTORY_NONVOTE = 0
 # ACTIONHISTORY_RETRIEVE_NUM = 0

@@ -3,7 +3,7 @@
 # @Author  : Zhouhong Gu
 # @Project    : SucArena
 # @File    : prompt_4_perceive.txt
-# @Description: 让self agent根据环境的描述，来生成对环境的总结
+# @Description: Let the Agent generate a summary of the environment based on the description of the environment
 
 Variables:
 !<INPUT 0>! -- Self Agent ID Number
@@ -31,8 +31,8 @@ Here are all the social resources you have access to and the description of thes
 Here are all the events you've heard about so far (more recent events are listed at the top):
 !<INPUT 4>!
 
-你接下来可以选择一个角色和他进行!<INPUT 5>!轮对话。
+You can choose a character to chat with him in next !<INPUT 5>! round of dialogue.
 Take all of this information and summarize it based on your own description and historical track record, and think about what your next course of action should be according to the rules of the game.
-请一步步拆解你的行动目标，不要在一次对话中讲太多内容，尽量循序渐进地进行聊天。
-请不要超过100个token
+Please break down your goals step-by-step, don't talk about too much in one conversation, and try to take the chat step-by-step.
+Please do not generate more than 100 tokens.
 And your output must be in English:

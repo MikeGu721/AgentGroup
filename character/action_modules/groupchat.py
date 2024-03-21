@@ -3,7 +3,7 @@ import sys
 import re
 
 
-def run_speech(character_id_number,
+def run_groupchat(character_id_number,
                character_description,
                action_history_description,
                candidates_description,
@@ -14,8 +14,8 @@ def run_speech(character_id_number,
     gpt_param = {"temperature": 0.3, "top_p": 1, "stream": False,
                  "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
 
-    prompt_template = "prompt_files/prompt_4_speech.txt"
-    prompt_template = "prompt_files/prompt_wo_thinking/prompt_4_speech_wo_thinking.txt"
+    prompt_template = "prompt_files/prompt_4_groupchat.txt"
+    # prompt_template = "prompt_files/prompt_wo_thinking/prompt_4_speech_wo_thinking.txt"
     prompt_input = create_prompt_input(character_id_number,
                                        character_description,
                                        action_history_description,

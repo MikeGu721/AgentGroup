@@ -7,23 +7,6 @@ def run_summarization(self_agent_id_number: str,
                       chat_history: str,
                       engine='gpt4',
                       logger=None):
-    '''
-    让source_character根据environment_description和target_character_list来选择target_character
-
-    Input:
-        self_agent_id_number: str,
-        target_agent_description: str,
-        self_agent_description: str,
-        target_agent_description: str,
-        environment_summary: str,
-        chat_history: str, 描述当前轮数
-        planning: str,
-        engine: str,
-        logger: Logger, 已有的logger类
-
-    Output:
-        target_character_id_number: str, 被选中角色的ID Number
-    '''
 
     gpt_param = {"max_tokens": 500,
                  "temperature": 0, "top_p": 1, "stream": False,

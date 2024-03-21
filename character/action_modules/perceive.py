@@ -10,18 +10,6 @@ def run_perceive(self_character_id_number: str,
                 chat_round_number,
                 support_character,
                 engine='gpt4',logger=None):
-    '''
-    Input:
-        self_character_id_number: str, self_character的ID Number
-        self_character_description: str, self_character对于自己的描述
-        rule_setting: str, 规则设定
-        all_resource_description: str, self_character能接触到的所有资源的描述
-        action_history_description: str, self_character能看到的行动历史
-        logger: Logger, 已有的日志类
-    Output:
-        environment_summary: str, self_character对于环境的总结
-    '''
-
     # 如果是人的话，不需要perceive
     if engine == 'human':
         return "这是人类，不需要Perceive"

@@ -3,7 +3,7 @@
 # @Author  : Zhouhong Gu
 # @Project    : SucArena
 # @File    : prompt_4_vote.txt
-# @Description: 让Agent根据Vote Requirement和Background Information，在Candidates里选一个
+# @Description: Let the Agent choose one of the Candidates based on the Vote Requirement and Background Information.
 
 Variables:
 !<INPUT 0>! -- Self Agent ID Number
@@ -35,7 +35,7 @@ The character you support so far is:
 !<INPUT 6>!
 
 Your task is to carefully understand your character setting and environment you are in. Then you should choose two characters to vote according to Vote Requirements and Candidates after your carefully Reasoning Process thinking.
-请你在"### Action Space:"后面输出你所有可以选择的角色，并用英文逗号","进行分隔。
+Could you please output all the available roles you can choose after "#### Action Space:", separated by commas ",".
 You should list two characters you support in ascending order after "### Choice:" separated by commas.
 Reminder:
 1. You should think carefully first and output your Reasoning Process after '### Reasoning Process:'.

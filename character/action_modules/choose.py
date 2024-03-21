@@ -2,7 +2,7 @@ from prompt.gpt_structure import generate_prompt, generate_with_response_parser,
 import sys
 
 
-def run_act(self_agent_id_number: str,
+def run_choose(self_agent_id_number: str,
             self_agent_description: str,
             environment_summary: str,
             round_description: str,
@@ -12,28 +12,13 @@ def run_act(self_agent_id_number: str,
             engine='gpt4',
             requirement_list=None,
             logger=None):
-    '''
-    让source_character根据environment_description和target_character_list来选择target_character
-    
-    Input:
-        self_agent_id_number: str,
-        self_agent_description: str,
-        environment_summary: str,
-        round_description: str, 描述当前轮数
-        action_history_description: str,
-        candidate_description: str,
-        logger: Logger, 已有的logger类
-
-    Output:
-        target_character_id_number: str, 被选中角色的ID Number
-    '''
 
     gpt_param = {"max_tokens": 500,
                  "temperature": 0, "top_p": 1, "stream": False,
                  "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
 
-    prompt_template = "prompt_files/prompt_4_act.txt"
-    prompt_template = "prompt_files/prompt_wo_thinking/prompt_4_act_wo_thinking.txt"
+    prompt_template = "prompt_files/prompt_4_choose.txt"
+    # prompt_template = "prompt_files/prompt_wo_thinking/prompt_4_act_wo_thinking.txt"
     prompt_input = create_prompt_input(self_agent_id_number,
                                        self_agent_description,
                                        environment_summary,

@@ -1,11 +1,3 @@
-'''
-整个流程
-1. 初始化Character、Environment、阵营
-2. 竞争阶段
-3. 合作阶段
-4. reflection阶段
-5. 结算阶段
-'''
 import collections
 import json
 
@@ -60,31 +52,19 @@ def succession_winner(defender_id_number, character_vote_dict)->list:
     return winner
 
 
-class SucArena:
+class AgentGroupChat:
     def __init__(self,
                  all_round_number: int,
-                 battle_chat_round: int = 3,
-                 collabration_chat_round: int = 3,
+                 private_chat_round: int = 3,
+                 meeting_chat_round: int = 3,
                  save_folder=None,
                  test_folder=None,
                  human_input=None,
                  logger=None):
-        '''
-        初始化游戏环境
-        Input:
-            all_round_number: int, 游戏总轮数
-            battle_chat_round: int, 每次对抗阶段对话总共有几轮
-            collabration_chat_round: int, 每次合作阶段对话总共有几轮
-            save_folder: str 存档地址
-            human_input: str 人类输入
-            logger: Logger 是否需要直接输入一个Logger
-        Output:
-            None
-        '''
 
         self.all_round_number = all_round_number
-        self.battle_chat_round = battle_chat_round
-        self.collaboration_chat_round = collabration_chat_round
+        self.private_chat_round = private_chat_round
+        self.meeting_chat_round = meeting_chat_round
         if not logger:
             self.logger = Logger()
         else:
@@ -95,8 +75,6 @@ class SucArena:
         self.test_folder = test_folder
         if save_folder:
             self.initialize(save_folder)
-
-            # 赋予NPC社会影响力
             for index, resource in enumerate(self.resources.get_all_resource()):
                 owner_id_number = resource.owner
                 self.characters.get_character_by_id(owner_id_number).give_influence(resource.influence)
@@ -140,13 +118,6 @@ class SucArena:
         all_state = ['']
 
     def save(self, save_folder) -> None:
-        '''
-        保存环境
-        Input:
-            save_folder: 存放地址
-        Output:
-            None
-        '''
         if not os.path.exists(save_folder):
             os.makedirs(save_folder)
 
@@ -176,97 +147,39 @@ class SucArena:
         self.logger.gprint('Save self.action_history to: ' + str(save_action_history_folder))
 
     def new_character_insert(self):
-        '''
-        插入新角色
-        Input:
-            待定
-        Output:
-            待定
-        '''
         pass
 
     def new_resource_insert(self):
-        '''
-        插入新的资源
-        Input:
-            xxx
-        Output:
-            xxx
-        '''
         pass
 
     def new_action_insert(self, new_action: list, now_round_number: int):
-        '''
-        插入新的行为
-        Input:
-            new_action: list [source_character_id_number:str, target_character_id_number:str, action_type:str, action:str]
-            now_round_number: int
-        Output:
-            None
-        '''
         action = Action(-1, new_action[0], new_action[1], new_action[2], new_action[3], now_round_number)
         action_index = self.action_history.insert_action(action)
         return action_index
 
     def get_rule_setting(self):
-        '''
-        返回Rule Setting
-        Input:
-            None
-        Output:
-            None
-        '''
         return self.rule_setting
 
     def get_all_resource_description(self):
-        '''
-        返回所有资源的描述
-        Input:
-            None
-        Output:
-            None
-        '''
         return self.resources.get_description()
 
     def get_all_character_list(self):
-        '''
-        返回所有角色列表
-        Input:
-            None
-        Output:
-            None
-        '''
         return self.characters.get_characters_description_except_some()
 
-    def get_round_description(self, now_round_number: int, compete=False, simple=False) -> str:
-        '''
-        得到一些关于当前轮数和总轮数的描述信息
-        Input:
-            now_round_number: int, 当前游戏进行到哪一轮
-            compete: bool, 当前轮是否处于对抗阶段
-        Output:
-            round_description: str
-        '''
+    def get_round_description(self, now_round_number: int, private=False, simple=False) -> str:
         round_description = ''
-        round_description += 'The game takes a total of %d rounds.' % self.all_round_number
-        round_description += 'The current game is played to round %d.' % (now_round_number + 1)
+        round_description += 'The game takes a total of %d rounds.\n' % self.all_round_number
+        round_description += 'The current game is played to round %d.\n' % (now_round_number + 1)
         if simple:
             return round_description
-        if compete:
-            round_description += 'And you\'re in a confrontational phase where all of your options don\'t support you in accomplishing your goals.'
+        if private:
+            round_description += 'You are in the private chatting stage, the stage where you meet with anyone without anyone else knowing about it.\n'
         else:
-            round_description += 'And you\'re in a confrontational phase where all of your options don\'t support you in accomplishing your goals.'
-        round_description += 'You\'ll talk to your chosen character for %d rounds per round.' % (
-            self.battle_chat_round if compete else self.collaboration_chat_round)
+            round_description += 'You are in the confidential meeting stage, the stage where what you meet with someone will be known to everyone, but they won\'t know what you talked about.\n'
+        round_description += 'You\'ll talk to your chosen character for %d rounds per round.\n' % (
+            self.private_chat_round if private else self.meeting_chat_round)
         return round_description
-    def announcement_stage(self, now_round_number:int)->None:
-        '''
-        进入宣言阶段
-        Input:
-            now_round_number: int,
-        Output:
-            None
-        '''
+    def group_chatting_stage(self, now_round_number:int)->None:
         round_description = self.get_round_description(now_round_number, simple=True)
         candidates = ['%s: %s' % (character.get_id_number(), character.get_short_description()) for character in
                       self.characters.get_all_characters()]
@@ -281,7 +194,7 @@ class SucArena:
             # 调用GPT
             # 不需要校验
             # ======================================================================================= #
-            speech, reasoning_process = character.speech_round(action_history,
+            speech, reasoning_process = character.grounchat_round(action_history,
                                                               candidates,
                                                               self.resources.get_description(),
                                                               self.rule_setting,
@@ -304,15 +217,8 @@ class SucArena:
             if self.test_folder:
                 self.save(self.test_folder)
 
-    def compete_stage(self, now_round_number: int) -> None:
-        '''
-        对抗阶段——所有MC根据自身的影响力大小依次行动，选择一个不同阵营的character进行对话
-        Input:
-            now_round_number: int, 当前轮数
-        Output:
-            None
-        '''
-        round_description = self.get_round_description(now_round_number, compete=True)
+    def private_chatting_stage(self, now_round_number: int) -> None:
+        round_description = self.get_round_description(now_round_number, private=True)
 
         main_character_influence = self.characters.get_main_character_influence()
         # 主要角色按照影响力大小依次行动
@@ -349,11 +255,9 @@ class SucArena:
                 log_type='Conclusion of environment',
                 log_content=main_character_environment_summary)
 
-            # 确定可以对话的候选人
             candidates_list = '\n'.join(['%s: %s' % (candidate.id_number, candidate.get_short_description())
                                          for candidate in self.characters.get_all_characters() if
-                                         (candidate.id_number != main_character.id_number and  # 剔除自己
-                                          candidate.get_support_character() != main_character.id_number)])  # 选择不同阵营的人
+                                         (candidate.id_number != main_character.id_number)])  # 剔除自己
             # 如果没有候选人，则跳过
             if not candidates_list: continue
 
@@ -366,11 +270,11 @@ class SucArena:
             while verify_result > 0:
                 candidates = [candidate.id_number for candidate in self.characters.get_all_characters() if
                               candidate.id_number != main_character.id_number]
-                action_space, thought, plan, chosen_character_id_number = main_character.act(main_character_environment_summary,
+                action_space, thought, plan, chosen_character_id_number = main_character.choose(main_character_environment_summary,
                                                             round_description,
                                                             main_character_action_history_description,
                                                             candidates_list,
-                                                            self.battle_chat_round,
+                                                            self.private_chat_round,
                                                             requirement_list=candidates)
 
                 if verify_constrained_action(chosen_character_id_number, candidates):
@@ -408,12 +312,12 @@ class SucArena:
                 log_type='Select dialogue role',
                 log_content='')
             # 生成对话事件，标记为### MEET，所有角色可见
-            action_event = [main_character.id_number, chosen_character.id_number, '### MEET',
-                            "%s chat with %s in round %d, but others don't know what they are talking about." % (main_character.id_number, chosen_character.id_number, now_round_number)]
-            meet_action_index = self.new_action_insert(action_event, now_round_number)
-            action_index.append(meet_action_index)
+            # action_event = [main_character.id_number, chosen_character.id_number, '### MEET',
+            #                 "%s chat with %s in round %d, but others don't know what they are talking about." % (main_character.id_number, chosen_character.id_number, now_round_number)]
+            # meet_action_index = self.new_action_insert(action_event, now_round_number)
+            # action_index.append(meet_action_index)
             # 选择对话轮数——目前是规则限制好，就对话这么些轮数
-            chat_round = BATTLE_CHAT_ROUND
+            chat_round = private_chat_round
             chat_history = ''
             for now_chat_round in range(chat_round):
                 # ======================================================================================= #
@@ -421,7 +325,7 @@ class SucArena:
                 # 不需要校验
                 # ======================================================================================= #
                 # 对话
-                number_of_action_history, thought, action_event = main_character.converse(target_candidate_id_number=chosen_character.id_number,
+                number_of_action_history, thought, action_event = main_character.facechat(target_candidate_id_number=chosen_character.id_number,
                                                        target_character_description=chosen_character.get_short_description(),
                                                        environment_description=main_character_environment_summary,
                                                        action_history_description=main_character_action_history_description,
@@ -451,7 +355,7 @@ class SucArena:
                 # 不需要校验
                 # ======================================================================================= #
                 # 对话
-                number_of_action_history, thought, action_event = chosen_character.converse(target_candidate_id_number=main_character.id_number,
+                number_of_action_history, thought, action_event = chosen_character.facechat(target_candidate_id_number=main_character.id_number,
                                                          target_character_description=main_character.get_short_description(),
                                                          environment_description=chosen_character_environment_summary,
                                                          action_history_description=chosen_character_action_history_description,
@@ -505,16 +409,8 @@ class SucArena:
             if self.test_folder:
                 self.save(self.test_folder)
 
-    def collaborate_stage(self, now_round_number: int):
-        '''
-        合作阶段——所有MC根据自身的影响力大小依次行动，选择一个同阵营的character进行对话
-        如果没有同阵营的角色，则跳过该MC
-        Input:
-            now_round_number: int, 当前轮数
-        Output:
-            None
-        '''
-        round_description = self.get_round_description(now_round_number, compete=False)
+    def confidential_meeting_stage(self, now_round_number: int):
+        round_description = self.get_round_description(now_round_number, private=False)
         main_character_influence = self.characters.get_main_character_influence()
         # 主要角色按照影响力大小依次行动
         for main_character_id_number in main_character_influence:
@@ -550,10 +446,13 @@ class SucArena:
                 log_content=main_character_environment_summary)
 
             # 确定可以对话的候选人
+            # candidates_list = '\n'.join(['%s: %s' % (candidate.id_number, candidate.get_short_description())
+            #                              for candidate in self.characters.get_all_characters() if
+            #                              (candidate.id_number != main_character.id_number and  # 剔除自己
+            #                               candidate.get_support_character() == main_character.id_number)])  # 选择同阵营的人
             candidates_list = '\n'.join(['%s: %s' % (candidate.id_number, candidate.get_short_description())
                                          for candidate in self.characters.get_all_characters() if
-                                         (candidate.id_number != main_character.id_number and  # 剔除自己
-                                          candidate.get_support_character() == main_character.id_number)])  # 选择同阵营的人
+                                         (candidate.id_number != main_character.id_number)])  # 剔除自己
 
             # candidates_list = '\n'.join(['%s: %s' % (candidate.id_number, candidate.get_short_description())
             #                              for candidate in self.characters.get_all_characters()])
@@ -569,11 +468,11 @@ class SucArena:
             while verify_result > 0:
                 candidates = [candidate.id_number for candidate in self.characters.get_all_characters() if
                               candidate.id_number != main_character.id_number]
-                action_space, thought, plan, chosen_character_id_number = main_character.act(main_character_environment_summary,
+                action_space, thought, plan, chosen_character_id_number = main_character.choose(main_character_environment_summary,
                                                                 round_description,
                                                                 main_character_action_history_description,
                                                                 candidates_list,
-                                                                self.collaboration_chat_round,
+                                                                self.meeting_chat_round,
                                                                 requirement_list=candidates)
 
                 if  verify_constrained_action(chosen_character_id_number, candidates):
@@ -625,7 +524,7 @@ class SucArena:
             meet_action_index = self.new_action_insert(action_event, now_round_number)
             action_index.append(meet_action_index)
             # 选择对话轮数——目前是规则限制好，就对话这么些轮数
-            chat_round = COLLABORATION_CHAT_ROUND
+            chat_round = meeting_chat_round
             chat_history = ''
             for now_chat_round in range(chat_round):
                 # ======================================================================================= #
@@ -633,7 +532,7 @@ class SucArena:
                 # 不需要校验
                 # ======================================================================================= #
                 # 对话
-                number_of_action_history, thought, action_event = main_character.converse(target_candidate_id_number=chosen_character.id_number,
+                number_of_action_history, thought, action_event = main_character.facechat(target_candidate_id_number=chosen_character.id_number,
                                                        target_character_description=chosen_character.get_short_description(),
                                                        environment_description=main_character_environment_summary,
                                                        action_history_description=main_character_action_history_description,
@@ -663,7 +562,7 @@ class SucArena:
                 # 不需要校验
                 # ======================================================================================= #
                 # 对话
-                number_of_action_history, thought, action_event = chosen_character.converse(target_candidate_id_number=main_character.id_number,
+                number_of_action_history, thought, action_event = chosen_character.facechat(target_candidate_id_number=main_character.id_number,
                                                          target_character_description=main_character.get_short_description(),
                                                          environment_description=chosen_character_environment_summary,
                                                          action_history_description=chosen_character_action_history_description,
@@ -717,14 +616,6 @@ class SucArena:
                 self.save(self.test_folder)
 
     def update_stage(self, now_round_number):
-        '''
-        更新阶段
-        Input:
-            now_round_number: Union[str, int], 当前游戏进行轮数
-        Output:
-            None
-        '''
-
         for character in self.characters.character_list:
             state_UID = 'NOW_ROUND:%d+ACTION:%s+CHARACTER:%s'%(now_round_number, 'UPDATE', character.id_number)
             if state_UID in self.finished_states: continue
@@ -936,14 +827,6 @@ class SucArena:
         self.characters.get_influence_for_main_character()
 
     def succession_settlement(self, whole_information):
-        '''
-        针对于继承之战的结算，每个角色可以发言一次，然后再进行投票
-        Input:
-            whole_information: bool, 让Agent知道全局信息还是局部信息？
-        Output:
-            character_vote_dict: dict 每个角色投票给谁
-            character_vote_others: 每个角色除了自己，投票给谁
-        '''
         character_vote_dict = {}
         character_vote_others = {}
 
@@ -975,7 +858,7 @@ class SucArena:
             # 不需要校验
             # ======================================================================================= #
             # 角色发言内容
-            speech, reasoning_process = character.speech(action_history, self.rule_setting,
+            speech, reasoning_process = character.grounchat(action_history, self.rule_setting,
                                                          candidates,
                                                          self.resources.get_description())
             # ======================================================================================= #
@@ -1120,9 +1003,6 @@ class SucArena:
         # return character_vote_dict, character_vote_others
 
     def settlement_stage(self, whole_information, game_name='Succession'):
-        '''
-        pass
-        '''
         action_history = ''
         background_information = 'Under the condition that the Agent knows only the actions it should know.'
         if whole_information == True:
@@ -1223,9 +1103,6 @@ class SucArena:
         return winner
 
     def succession_get_character_vote_dict(self):
-        '''
-        根据action history得到character_vote和character_vote_others
-        '''
         character_vote = {}
         character_vote_others = {}
 
@@ -1243,13 +1120,13 @@ if __name__ == '__main__':
     test_folder = TEST_FOLDER
     game_round = GAME_ROUND
     log_dir = LOG_FOLDER
-    battle_chat_round = BATTLE_CHAT_ROUND
-    collabration_chat_round = COLLABORATION_CHAT_ROUND
+    private_chat_round = PRIVATE_CHAT_ROUND
+    meeting_chat_round = MEETING_CHAT_ROUND
 
     logger = Logger(log_dir)
-    sucarena = SucArena(all_round_number=game_round,
-                        battle_chat_round=battle_chat_round,
-                        collabration_chat_round=collabration_chat_round,
+    groupchat_simulation = AgentGroupChat(all_round_number=game_round,
+                        private_chat_round=private_chat_round,
+                        meeting_chat_round=meeting_chat_round,
                         save_folder=save_folder,
                         test_folder=test_folder,
                         logger=logger)
@@ -1267,21 +1144,21 @@ if __name__ == '__main__':
                       target_character='',
                       log_type='Stage Change', thought='',
                       log_content='Confrontation Stage')
-        sucarena.compete_stage(i)
+        groupchat_simulation.private_chatting_stage(i)
 
         logger.gprint(important_log='important_log',
                       source_character='',
                       target_character='',
                       log_type='Stage Change', thought='',
                       log_content='Cooperation Stage')
-        sucarena.collaborate_stage(i)
+        groupchat_simulation.confidential_meeting_stage(i)
 
         logger.gprint(important_log='important_log',
                       source_character='',
                       target_character='',
                       log_type='Stage Change', thought='',
                       log_content='Announcement Stage')
-        sucarena.announcement_stage(i)
+        groupchat_simulation.group_chatting_stage(i)
 
         logger.gprint(important_log='important_log',
                       source_character='',
@@ -1289,10 +1166,10 @@ if __name__ == '__main__':
                       log_type='Stage Change',
                       thought='',
                       log_content='Update Stage')
-        sucarena.update_stage(i)
+        groupchat_simulation.update_stage(i)
 
         logger.gprint('Start Saving')
-        sucarena.save(test_folder)
+        groupchat_simulation.save(test_folder)
         logger.gprint(important_log='important_log',
                       source_character='',
                       target_character='',
@@ -1302,14 +1179,13 @@ if __name__ == '__main__':
 
 
     game_name = 'Succession'
-
     logger.gprint(important_log='important_log',
                   source_character='',
                   target_character='',
                   log_type='Turn Change',
                   thought='',
                   log_content='Settlement Turn')
-    local_information_winner = sucarena.settlement_stage(whole_information=False, game_name=game_name)
+    local_information_winner = groupchat_simulation.settlement_stage(whole_information=False, game_name=game_name)
     logger.gprint(important_log='important_log',
                   source_character='',
                   target_character='',
@@ -1323,7 +1199,7 @@ if __name__ == '__main__':
                   log_type='Turn Change',
                   thought='',
                   log_content='Settlement Turn (Cheating)')
-    whole_information_winner = sucarena.settlement_stage(whole_information=True, game_name=game_name)
+    whole_information_winner = groupchat_simulation.settlement_stage(whole_information=True, game_name=game_name)
     logger.gprint(important_log='important_log',
                   source_character='',
                   target_character='',
@@ -1333,8 +1209,7 @@ if __name__ == '__main__':
 
 
     logger.gprint('Start Saving')
-    # sucarena.new_action_insert(['empty_action','empty_action','empty_action','empty_action'], i+1)
-    sucarena.save(test_folder)
+    groupchat_simulation.save(test_folder)
     logger.gprint('Game ends successfully')
 
 
