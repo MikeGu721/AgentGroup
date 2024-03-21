@@ -19,11 +19,11 @@ To investigate the role of language in human collective behaviors, we developed 
 - [2024.03.20]: 🔥🔥 Open-sourced the git repository, including the detailed configuration steps to implement our Agent Group Chat!
 
 
-# ✨ Demo
+## ✨ Demo
 ---
 - Coming Soon!
 
-# 🚀 Quick Start
+## 🚀 Quick Start
 ---
 ### Simulation
 - `pip install -r requirements.txt`
@@ -60,9 +60,9 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
       - thought: context
 
 
-# 🔍 Some Attributes in Agent Group Chat
+## 🔍 Some Attributes in Agent Group Chat
 ---
-## Character
+### Character
 ```markdown
 "name": The character's name [only displayed on the frontend],
 "id_name": The character's ID [used for backend interactions],
@@ -80,7 +80,7 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
 
 ```
 
-## Resource
+### Resource
 ```markdown
 "name": The name of the resource,
 "id_number": R + the resource's ID Number,
@@ -93,16 +93,16 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
 ```
 
 
-## Logger
+### Logger
 ```markdown
 "source_character": The initiating character of the log,
 "target_character": The target character,
 "thought": Thought process,
-"log_type": Type of log event [refer to ## Action Type],
+"log_type": Type of log event [refer to ### Action Type],
 "log_content": Specific event details.
 ```
 
-## Action History
+### Action History
 ```markdown
 "source_character": The initiator of the action,
 "target_character": The recipient of the action,
@@ -110,7 +110,7 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
 "action_content": Content of the action.
 ```
 
-## Action Type
+### Action Type
 - SAY
 - CHAT_SUMMARIZATION
 - MEET
@@ -121,11 +121,11 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
 - VOTE
 - VOTE_OTHERS
 - 
-# 📱 Contact:
+## 📱 Contact:
 ---
 If you have any problems, please contact <a src="zhgu22@m.fudan.edu.cn">Zhouhong Gu</a>.
 
-# 📖 TODO List:
+## 📖 TODO List:
 ---
 - [ ] Open Source Online Platform Code
 - [ ] Put more demos into the project
@@ -133,7 +133,7 @@ If you have any problems, please contact <a src="zhgu22@m.fudan.edu.cn">Zhouhong
 - [ ] Open Source Benchmark
 - [x] Open Source the simulation code
 
-# 😉 Citation
+## 😉 Citation
 ---
 ```json
 @ARTICLE{gu2024agent,
