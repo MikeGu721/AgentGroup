@@ -120,7 +120,7 @@ Our code does not contain Front-end for now, we will upload Front-end code soon.
 - GUESS
 - VOTE
 - VOTE_OTHERS
-- 
+
 ## 📱 Contact:
 
 If you have any problems, please contact <a src="zhgu22@m.fudan.edu.cn">Zhouhong Gu</a>.
