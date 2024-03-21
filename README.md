@@ -30,66 +30,68 @@
 - write your code in `./prompt/gpt_structure.py`
 
 ## Human Interaction
-- 在`initial_version/characters/xxx.json`里，将"engine"换为"human"便可以设置人类参与
-- 人类需要输入以下内容
-  - act——选人
-  - converse——对话
-  - speech——对话
-  - guess——选人
-  - vote——选人
-  - vote_others——选人
-  - 选人
-    - log_type: "Human Choosing"
-    - requirement: 候选list
-    - thought: context
-  - 对话
-    - log_type: "Human Speaking"
-    - thought: context
+- To involve human interaction, replace "engine" with "human" in `initial_version/characters/xxx.json`.
+- Humans need to input the following:
+  - act——choose a person 
+  - converse——speak
+  - speech——speak
+  - guess——choose a person 
+  - vote——choose a person 
+  - vote_others——choose a person 
+    - Choosing a person 
+      - log_type: "Human Choosing"
+      - requirement: candidates list 
+      - thought: context
+    - Having a dialogue 
+      - log_type: "Human Speaking"
+      - thought: context
 
 ## Character
 ```markdown
-"name": 角色名字【只在前端展示出来】,
-"id_name": 角色ID【后端交互时，都使用ID】,
-"main_character": 是否为主要角色,
-"support_character": 支持哪个角色【暂时设定为主要角色不会支持其他角色】,
-"objective": 角色的目标
-"scratch": 角色的脚本【仅自己可见】
-"background": 角色的背景【所有人可见】
-"engine": 角色是由哪个模型驱动的【gpt3.5, gpt4, human, glm-3-turbo, glm-4, hunyuan-chatpro, hunyuan-chatstd, huggingface上的模型参数(THUDM/chatglm3-6b-32k)】
-"belief": 角色的信念【可能会在不同信念之间发生跳转】
-"judgement": 对于其他角色之间关系的判断【还没实现】
-"relation": 对于其他角色的关系【初始置空】
-"portrait": 角色头像存放位置
-"small_portrait": 角色小头像存放位置
+"name": The character's name [only displayed on the frontend],
+"id_name": The character's ID [used for backend interactions],
+"main_character": Whether it is a main character,
+"support_character": Which character it supports [temporarily set so that main characters do not support others],
+"objective": The character's objective,
+"scratch": The character's script [visible to themselves only],
+"background": The character's background [visible to everyone],
+"engine": The model driving the character [options include 'gpt3.5', 'gpt4', 'human', 'glm-3-turbo', 'glm-4', 'hunyuan-chatpro', 'hunyuan-chatstd', or model parameters from huggingface (like 'THUDM/chatglm3-6b-32k')],
+"belief": The character's belief [might switch between different beliefs],
+"judgement": The character's judgement of relationships between other characters [not implemented yet],
+"relation": The character's relations with others [initially empty],
+"portrait": Location of the character's portrait,
+"small_portrait": Location of the character's small portrait.
+
 ```
 
 ## Resource
 ```markdown
-"name": 资源名字
-"id_number": R + 资源的ID Number
-"description": 资源的介绍【所有人可见】
-"influence": 资源的影响力数值
-"owner": 资源的拥有者
-"topic": 资源所能够提供的话题
-"portrait": 资源的显示头像【暂时无用】
-"small_portrait": 资源的显示头像【暂时无用】
+"name": The name of the resource,
+"id_number": R + the resource's ID Number,
+"description": Introduction to the resource,
+"influence": The numerical influence value of the resource,
+"owner": The owner of the resource,
+"topic": Topics that the resource can provide,
+"portrait": The resource's display portrait [currently unused],
+"small_portrait": The resource's display portrait [currently unused].
 ```
+
 
 ## Logger
 ```markdown
-"source_character": 日志发起角色
-"target_character": 动作对象
-"thought": 思考过程
-"log_type": 日志事件【参考下表】
-"log_content": 事件具体【参考下表】
+"source_character": The initiating character of the log,
+"target_character": The target character,
+"thought": Thought process,
+"log_type": Type of log event [refer to ## Action Type],
+"log_content": Specific event details.
 ```
 
 ## Action History
 ```markdown
-"source_character": 动作发起者
-"target_character": 动作接受者
-"action_type": 动作类型
-"action_content": 动作内容
+"source_character": The initiator of the action,
+"target_character": The recipient of the action,
+"action_type": Type of action,
+"action_content": Content of the action.
 ```
 
 ## Action Type
