@@ -13,6 +13,22 @@ def run_reflect(self_id_number:str,
                case_of_relationship_change:str,
                case_of_belief_change:str,
                engine='gpt4',logger=None):
+    '''
+    根据角色自己的描述，以及其他角色描述，和action_history的事情，改变自己对所有其他决的关系、判断
+    Input:
+        self_id_number: str agent自己的名字
+        self_description: str agent自己的描述
+        self_belief_description: str agent所有的信念
+        all_action_description: str agent能看到的所有行为的描述
+        all_character_description: str 其他所有character
+
+    Output:
+        reflect_thought: str, 反思记忆
+        relationship_change: dict, 更新对于其他角色的好感度
+        belief_change: dict, 对于自己信念的更新
+        judgement_change: dict, 更新的对于其他角色之间社会关系的猜测
+    '''
+
     gpt_param = {"temperature": 0.5, "top_p": 1, "stream": False,
                  "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
 

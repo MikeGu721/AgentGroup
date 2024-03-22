@@ -12,6 +12,21 @@ def run_vote(source_character_id_number: str,
              engine='gpt4',
              requirement_list=None,
              logger=None):
+    '''
+    角色进行投票
+    Input:
+        source_character_id_number: str,
+        source_character_description:str,
+        self_belief_description: str, 
+        vote_requirement: str 投票要求
+        background_information: str 背景信息
+        candidates: str 可以投票的对象
+
+    Output:
+        choice : str, 选择的角色id_number
+        reasoning_process: str, 推理理由
+    '''
+
     gpt_param = {"temperature": 0.3, "top_p": 1, "stream": False,
                  "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
 

@@ -11,6 +11,25 @@ def run_facechat(source_character_id_number: str,
                 chat_history: str,
                 plan: str,
                 engine='gpt4',logger=None):
+    '''
+    让source_character基于environment_description和action_history对target_character一次对话
+
+    ACTION_SPACE:
+    ### SAY
+    ### MEET
+    ### REFLECT
+    ### SPEECH
+
+    Input:
+    environment_description: str
+    target_character: Persona
+    source_character: Persona 
+    action_history: ActionHistory
+
+    Output:
+    action_history: list ([str, str])
+    '''
+
     gpt_param = {"temperature": 0.5, "top_p": 1, "stream": False,
                  "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
 

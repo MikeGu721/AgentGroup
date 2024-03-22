@@ -12,20 +12,15 @@ Variables:
 !<INPUT 3>! -- Candidates
 !<INPUT 4>! -- Resources
 !<INPUT 5>! -- Support Character
-!<INPUT 6>! -- Rule Setting
+!<INPUT 6>! -- Round Description
 
 <commentblockmarker>###</commentblockmarker>
 
 You are !<INPUT 0>!. Here is your description:
 !<INPUT 1>!
 
-You are playing a game, and here is the rule:
-!<INPUT 6>!
 
-You are delivering a speech to all the character in this game.
-This is your last chance before letting all player vote.
-
-Here are all the events you've heard about so far (more recent events are listed at the top):
+And here are all the events you've heard about so far (more recent events are listed at the top):
 !<INPUT 2>!
 
 Here are all the social resources you have access to and the description of these social resources in this game (the higher the social influence, the more power the organization owner has):
@@ -36,6 +31,8 @@ All current roles are described below:
 
 The character you support so far is:
 !<INPUT 5>!
+
+!<INPUT 6>!
 
 Reminder:
 1. You should think carefully with reasoning process before your speech to others.
