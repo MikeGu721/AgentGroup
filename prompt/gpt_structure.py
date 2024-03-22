@@ -249,33 +249,33 @@ def generate(message_or_prompt, gpt_param=None, engine='gpt4', model=None, log_d
     if gpt_param is None:
         gpt_param = {}
     response_json = {}
-    # try:
-    if model:
-        response_json = model_response(model, message_or_prompt)
-    elif engine == 'gpt3.5':
-        response_json = GPT3_request(message_or_prompt, gpt_param, log_dir)
-    elif engine == 'gpt4':
-        response_json = GPT4_request(message_or_prompt, gpt_param, log_dir)
-    elif engine == 'gpt4-turbo':
-        response_json = GPT4_turbo_request(message_or_prompt, gpt_param, log_dir)
-    elif engine.startswith('glm'):
-        response_json = GLM_request_by_API(message_or_prompt, engine, gpt_param, glm_key, log_dir)
-    elif engine.lower().startswith('hunyuan'):
-        if 'chatpro' in engine.lower(): engine = 'ChatPro'
-        elif 'chatstd' in engine.lower(): engine = 'ChatStd'
-        response_json = HunYuan_request(tencent_appid, tencent_secretid, tencent_secretkey, message_or_prompt, engine, gpt_param, log_dir)
-    elif engine == 'human':
-        response_json = human_request(message_or_prompt)
-    else:
-        raise NotImplementedError('Engine {} is not implemented, Only [gpt3.5, gpt4] is available'.format(engine))
-    return response_json["choices"][0]["message"]["content"]
-    # except:
-    #     print('=' * 17 + 'MODEL RESPONSE ERROR' + '=' * 17)
-    #     print(response_json)
-    #     if 'Error' in response_json:
-    #         raise Exception(response_json['Error'])
-    #     else:
-    #         raise Exception(f"[Error]: Engine {engine} Request Error")
+    try:
+        if model:
+            response_json = model_response(model, message_or_prompt)
+        elif engine == 'gpt3.5':
+            response_json = GPT3_request(message_or_prompt, gpt_param, log_dir)
+        elif engine == 'gpt4':
+            response_json = GPT4_request(message_or_prompt, gpt_param, log_dir)
+        elif engine == 'gpt4-turbo':
+            response_json = GPT4_turbo_request(message_or_prompt, gpt_param, log_dir)
+        elif engine.startswith('glm'):
+            response_json = GLM_request_by_API(message_or_prompt, engine, gpt_param, glm_key, log_dir)
+        elif engine.lower().startswith('hunyuan'):
+            if 'chatpro' in engine.lower(): engine = 'ChatPro'
+            elif 'chatstd' in engine.lower(): engine = 'ChatStd'
+            response_json = HunYuan_request(tencent_appid, tencent_secretid, tencent_secretkey, message_or_prompt, engine, gpt_param, log_dir)
+        elif engine == 'human':
+            response_json = human_request(message_or_prompt)
+        else:
+            raise NotImplementedError('Engine {} is not implemented, Only [gpt3.5, gpt4] is available'.format(engine))
+        return response_json["choices"][0]["message"]["content"]
+    except:
+        print('=' * 17 + 'MODEL RESPONSE ERROR' + '=' * 17)
+        print(response_json)
+        if 'Error' in response_json:
+            raise Exception(response_json['Error'])
+        else:
+            raise Exception(f"[Error]: Engine {engine} Request Error")
 
 
 def create_prompt_input(*args):
@@ -290,7 +290,7 @@ def generate_with_response_parser(message_or_prompt, gpt_param=None, engine='gpt
     response_json = {}
     output = ''
     while retry > 0:
-        # try:
+        try:
             output = None
             logger_dir = logger.gpt_log_dir if 'gpt' in engine.lower() else logger.glm_log_dir if 'glm' in engine.lower() else logger.hunyuan_log_dir if 'hunyuan' in engine.lower() else None
             if logger_dir:
@@ -305,18 +305,18 @@ def generate_with_response_parser(message_or_prompt, gpt_param=None, engine='gpt
             if output is not None:
                 if logger:
                     logger.gprint('Prompt Log', prompt=str(message_or_prompt), output=str(output), func_name=func_name)
-        #         return output
-        # except Exception as e:
-        #     print('=' * 23 + 'ERROR' + '=' * 23)
-        #     if logger:
-        #         logger.gprint('ERROR in generate_with_response_parser!!', prompt=str(message_or_prompt),
-        #                       response_json=str(response_json),
-        #                       output=str(output),
-        #                       error=str(e))
-        #     print(e)
-        #     temp_sleep(10)
-        #     retry -= 1
-        #     print(f'Retrying {max_retry - retry} times...')
+                return output
+        except Exception as e:
+            print('=' * 23 + 'ERROR' + '=' * 23)
+            if logger:
+                logger.gprint('ERROR in generate_with_response_parser!!', prompt=str(message_or_prompt),
+                              response_json=str(response_json),
+                              output=str(output),
+                              error=str(e))
+            print(e)
+            temp_sleep(10)
+            retry -= 1
+            print(f'Retrying {max_retry - retry} times...')
     raise Exception(f"[Error]: Exceed Max Retry Times")
 
 
