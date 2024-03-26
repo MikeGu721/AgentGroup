@@ -264,7 +264,7 @@ class AgentGroupChat:
 
     def get_groupchat_round_description(self, now_round_number, now_chat_round):
         round_description = self.get_round_description(now_round_number, simple=True)
-        round_description += 'You are in a group chat and what you say will be visible to all characters.'
+        round_description += 'You are in a group chat and what you say will be visible to all characters.\n'
         round_description += 'A total of %d rounds of group chat are taking place, and you are currently in the %d round.'%(self.group_chat_round, now_chat_round)
 
         return round_description
@@ -295,7 +295,6 @@ class AgentGroupChat:
                 for new_action, character in round_action_history[now_chat_round-1]:
                     state_UID = 'NOW_ROUND:%d+ACTION:%s+CHARACTER:%s' % (now_round_number, 'ANNOUNCEMENT', character.id_number)
                     if state_UID in self.finished_states: continue
-                    self.new_action_insert(new_action, now_round_number)
                     action_index = self.new_action_insert(new_action, now_round_number)
                     self.finished_states[state_UID] = [action_index]
                     if self.test_folder:
@@ -312,14 +311,14 @@ class AgentGroupChat:
                 # 调用GPT
                 # 不需要校验
                 # ======================================================================================= #
-                speech, reasoning_process = character.grounchat(action_history,
+                speech, reasoning_process = character.groupchat(action_history,
                                                                   candidates,
                                                                   self.resources.get_description(),
                                                                   round_description,
                                                                   )
                 # ======================================================================================= #
                 # 打日志
-                speech = 'Game Round %d, Chat Round %d, public speech that character %s makes to all the other characters: %s' % (now_round_number+1, now_chat_round+1, character.id_number, speech)
+                speech = 'Game Round %d, Chat Round %d, group chat that character %s makes to all the other characters: %s' % (now_round_number+1, now_chat_round+1, character.id_number, speech)
                 self.logger.gprint(thought=reasoning_process,
                     important_log='important_log',
                     source_character=character.id_number,

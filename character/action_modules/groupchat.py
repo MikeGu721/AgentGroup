@@ -25,8 +25,6 @@ def run_speech(character_id_number,
 
     def parse_output(gpt_response):
         try:
-            # reasoning_process = re.search(r"### Reasoning Process:(.*)### SPEECH", gpt_response).group(1).strip()
-            # speech = re.search(r"### SPEECH:(.*)", gpt_response).group(1).strip().split(',')
             reasoning_process = gpt_response.split('### Reasoning Process:')[-1].split('### Speech:')[0].strip()
             speech = gpt_response.split('### Speech:')[-1]
         except:
@@ -61,7 +59,7 @@ def run_speech(character_id_number,
     else:
         speech, reasoning_process = generate_with_response_parser(prompt, gpt_param=gpt_param, parser_fn=parse_output, engine=engine,
                                                   logger=logger,func_name='run_speech')
-    speech = speech.replace('\n', '')
+    speech = speech.replace('\n', ' ').strip()
     return speech, reasoning_process
 
 def run_groupchat(character_id_number,
@@ -90,8 +88,8 @@ def run_groupchat(character_id_number,
 
     def parse_output(gpt_response):
         try:
-            reasoning_process = re.search(r"### Reasoning Process:(.*)\n", gpt_response).group(1).strip()
-            speech = gpt_response.split('### SPEECH:')[-1]
+            reasoning_process = gpt_response.split('### Reasoning Process')[-1].split('### Speech:')[0].strip()
+            speech = gpt_response.split('### Speech:')[-1]
         except:
             print('ERROR\nERROR\n', gpt_response, '\nERROR\nERROR\n')
             raise Exception("[Error]: GPT response parse error")
@@ -104,5 +102,5 @@ def run_groupchat(character_id_number,
     else:
         speech, reasoning_process = generate_with_response_parser(prompt, gpt_param=gpt_param, parser_fn=parse_output, engine=engine,
                                                   logger=logger,func_name='run_speech_round')
-    speech = speech.replace('\n', '')
+    speech = speech.replace('\n', ' ').strip()
     return speech, reasoning_process

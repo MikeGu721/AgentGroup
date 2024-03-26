@@ -76,7 +76,7 @@ def run_reflect(self_id_number:str,
                 verify_result -= 1
         if not correct: raise  Exception("[Error]: GPT response parse error")
         reflect_result = reflect_result.replace('\n', '')
-    return 'No Reflection', relationship_change, belief_change, judgement_change
+    return reflect_result, relationship_change, belief_change, judgement_change
 
 
 
